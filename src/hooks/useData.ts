@@ -14,6 +14,7 @@ const useData = <T>(endPoint: string) => {
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
+
     apiClient
       .get<FeatchResponse<T>>(endPoint, { signal: controller.signal })
       .then((res) => {
