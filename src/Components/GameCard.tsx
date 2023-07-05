@@ -6,8 +6,8 @@ import PlatformsIconList from "./PlatformsIconList";
 interface Props {
   game: Game;
 }
-
 const GameCard = ({ game }: Props) => {
+
   return (
     <Card>
       <Image src={getCroppedImageUrl(game.background_image)} />
@@ -15,7 +15,7 @@ const GameCard = ({ game }: Props) => {
         <Heading fontSize={20}>{game.name}</Heading>
         <HStack justifyContent={"space-between"}>
           <PlatformsIconList
-            platforms={game.parent_platforms.map((p) => p.platform)}
+            platforms={game.parent_platforms.map((p)=>p.platform)}
           />
           <CricticScore scroe={game.metacritic} />
         </HStack>
