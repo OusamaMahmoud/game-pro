@@ -2,6 +2,7 @@ import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
 import getCroppedImageUrl from "../Services/image-url";
 import { Game } from "../hooks/useGames";
 import CricticScore from "./CricticScore";
+import Emoji from "./Emoji";
 import PlatformsIconList from "./PlatformsIconList";
 interface Props {
   game: Game;
@@ -12,13 +13,13 @@ const GameCard = ({ game }: Props) => {
     <Card>
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <Heading fontSize={20}>{game.name}</Heading>
-        <HStack justifyContent={"space-between"}>
+        <HStack justifyContent={"space-between"} marginBottom={5}>
           <PlatformsIconList
             platforms={game.parent_platforms.map((p)=>p.platform)}
           />
           <CricticScore scroe={game.metacritic} />
         </HStack>
+        <Heading fontSize={20}>{game.name} <Emoji rating={game.rating_top}/> </Heading>
       </CardBody>
     </Card>
   );

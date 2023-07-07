@@ -22,7 +22,7 @@ const GameGrid = ({gameQuery}:Props) => {
           lg: 2,
           xl: 3,
         }}
-        spacing={10}
+        spacing={6}
       >
         {isLoading &&
           skeltons.map((skeleton) => (
