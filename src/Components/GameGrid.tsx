@@ -5,38 +5,38 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 
-interface Props{
-  gameQuery : GameQuery;
+interface Props {
+  gameQuery: GameQuery;
 }
 
-const GameGrid = ({gameQuery}:Props) => {
+const GameGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery); //custom hook
   const skeltons = [1, 2, 3, 4, 5, 6];
+  if (error) {
+    error && <Text>{error}</Text>;
+  }
   return (
-    <>
-      {error && <Text>{error}</Text>}
-      <SimpleGrid
-        padding={"10px"}
-        columns={{
-          sm: 1,
-          lg: 2,
-          xl: 3,
-        }}
-        spacing={6}
-      >
-        {isLoading &&
-          skeltons.map((skeleton) => (
-            <GameBoxContainer key={skeleton}>
-              <GameCardSkeleton />
-            </GameBoxContainer>
-          ))}
-        {data.map((game) => (
-          <GameBoxContainer key={game.id}>
-            <GameCard  game={game} />
+    <SimpleGrid
+      padding={"10px"}
+      columns={{
+        sm: 1,
+        lg: 2,
+        xl: 3,
+      }}
+      spacing={6}
+    >
+      {isLoading &&
+        skeltons.map((skeleton) => (
+          <GameBoxContainer key={skeleton}>
+            <GameCardSkeleton />
           </GameBoxContainer>
         ))}
-      </SimpleGrid>
-    </>
+      {data.map((game) => (
+        <GameBoxContainer key={game.id}>
+          <GameCard game={game} />
+        </GameBoxContainer>
+      ))}
+    </SimpleGrid>
   );
 };
 
