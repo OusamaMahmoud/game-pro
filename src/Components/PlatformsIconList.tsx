@@ -11,10 +11,11 @@ import {
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
-import { platform } from "../hooks/useGames";
+import { Platform } from "../Services/platformService";
+
 
 interface Props {
-  platforms: platform[];
+  platforms: Platform[];
 }
 const PlatformsIconList = ({ platforms }: Props) => {
 

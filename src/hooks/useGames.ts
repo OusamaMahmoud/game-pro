@@ -1,28 +1,13 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import APIClient, { FeatchResponse } from "../Services/api-client";
-export interface platform {
-  id: number;
-  name: string;
-  slug: string;
-}
-
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  parent_platforms: { platform: platform }[];
-  metacritic: number;
-  rating_top: number;
-}
-
-const apiClient = new APIClient<Game>("/games");
+import { FeatchResponse } from "../Services/api-client";
+import gameService, { Game } from "../Services/gameService";
 
 const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FeatchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
-    queryFn: ({ pageParam }) =>
-      apiClient.getQuery({
+    queryFn: ({ pageParam = 1  }) =>
+      gameService.getQuery({
         params: {
           genres: gameQuery.genreId,
           parent_platforms: gameQuery.platformId,
