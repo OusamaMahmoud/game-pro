@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { FeatchResponse } from "../Services/api-client";
-import gameService, { Game } from "../Services/gameService";
+import gameService from "../Services/gamesService";
+import { Game } from "../entities/Game";
 import useGameQueryStore from "../stores/gameQueryStore";
 
 const useGames = () => {
@@ -15,6 +16,7 @@ const useGames = () => {
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
           page: pageParam,
+          
         },
       }),
     getNextPageParam: (lastPage, allPages) => {

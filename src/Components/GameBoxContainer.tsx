@@ -1,15 +1,22 @@
-import { Box } from '@chakra-ui/react';
-import { ReactNode } from 'react';
+import { Box } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
-interface Props{
+interface Props {
   children: ReactNode;
 }
-const GameBoxContainer = ({children}:Props) => {
+const GameBoxContainer = ({ children }: Props) => {
   return (
-    <Box  borderRadius={5} overflow={"hidden"}>
+    <Box
+    _hover={{
+      transform:'scale(1.03)',
+      transition:'transform .15s ease-in'
+    }}
+      borderRadius={5}
+      overflow={"hidden"}
+    >
       {children}
     </Box>
-  )
-}
+  );
+};
 
-export default GameBoxContainer
+export default GameBoxContainer;
