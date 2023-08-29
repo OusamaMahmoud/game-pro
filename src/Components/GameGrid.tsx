@@ -3,7 +3,6 @@ import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import GameBoxContainer from "../Components/GameBoxContainer";
 import useGames from "../hooks/useGames";
-import useGameQueryStore from "../stores/gameQueryStore";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 

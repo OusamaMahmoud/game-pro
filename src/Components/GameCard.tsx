@@ -1,9 +1,9 @@
 import {
-    Card,
-    CardBody,
-    HStack,
-    Heading,
-    Image
+  Card,
+  CardBody,
+  HStack,
+  Heading,
+  Image
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import getCroppedImageUrl from "../Services/image-url";
