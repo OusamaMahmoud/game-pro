@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import getCroppedImageUrl from "../Services/image-url";
-import { Game } from "../entities/Game";
+import  Game  from "../entities/Game";
 import CricticScore from "./CricticScore";
 import Emoji from "./Emoji";
 import PlatformsIconList from "./PlatformsIconList";
